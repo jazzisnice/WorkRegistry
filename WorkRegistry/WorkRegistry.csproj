@@ -99,8 +99,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="model\DbOperations.cs" />
-    <Compile Include="view\WorkerWindow.xaml.cs">
-      <DependentUpon>WorkerWindow.xaml</DependentUpon>
+    <Compile Include="view\TeamWindow.xaml.cs">
+      <DependentUpon>TeamWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\NewWorkerWindow.xaml.cs">
+      <DependentUpon>NewWorkerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\WorkersWindow.xaml.cs">
+      <DependentUpon>WorkersWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -115,7 +121,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="view\WorkerWindow.xaml">
+    <Page Include="view\TeamWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\NewWorkerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\WorkersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

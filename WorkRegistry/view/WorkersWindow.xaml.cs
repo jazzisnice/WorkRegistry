@@ -16,24 +16,21 @@ using WorkRegistry.model;
 namespace WorkRegistry.view
 {
     /// <summary>
-    /// Interaction logic for WorkerWindow.xaml
+    /// Interaction logic for WorkersWindow.xaml
     /// </summary>
-    public partial class WorkerWindow : Window
+    public partial class WorkersWindow : Window
     {
-        public WorkerWindow()
+        public WorkersWindow()
         {
             InitializeComponent();
         }
 
-        private void AddNewWorker(object sender, RoutedEventArgs e)
+        public List<Worker> Workers
         {
-            Worker worker = new Worker()
+            get
             {
-                // TODO validation
-                Name = WorkerNameTB.Text
-            };
-            DbOperations.AddWorker(worker);
-            this.Close();
+                return DbOperations.GetAllWorkers();
+            }
         }
     }
 }

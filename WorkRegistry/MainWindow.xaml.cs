@@ -31,9 +31,14 @@ namespace WorkRegistry
 
         private void WorkersButton_Click(object sender, RoutedEventArgs e)
         {
-            WorkerWindow window = new WorkerWindow();
+            WorkersWindow window = new WorkersWindow();
             window.Show();
-            Console.WriteLine("Opened window");
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            TeamWindow window = new TeamWindow();
+            window.Show();
         }
     }
 }

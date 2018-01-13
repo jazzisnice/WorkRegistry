@@ -8,7 +8,7 @@
         Title="MainWindow" Height="350" Width="525">
     <StackPanel>
         <Button Name="WorkersButton" Click="WorkersButton_Click">Munkások</Button>
-        <Button>Csapatok</Button>
+        <Button Click="Button_Click">Csapatok</Button>
         <Button>Rendezvények</Button>
     </StackPanel>
 </Window>

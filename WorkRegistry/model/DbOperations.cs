@@ -35,5 +35,10 @@ namespace WorkRegistry.model
                 return false;
             }
         }
+
+        public static List<Worker> GetAllWorkers()
+        {
+            return db.Query<Worker>("SELECT * FROM WORKER");
+        }
     }
 }

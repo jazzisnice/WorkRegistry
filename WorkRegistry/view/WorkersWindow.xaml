@@ -1,0 +1,19 @@
+﻿<Window x:Class="WorkRegistry.view.WorkersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorkRegistry.view"
+        mc:Ignorable="d"
+        Title="WorkersWindow" Height="300" Width="300">
+    <ListBox x:Name="WorkerListbox" HorizontalAlignment="Left" Height="249" Margin="10,10,0,0" VerticalAlignment="Top" Width="272" 
+             ItemsSource="Binding Workers">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <StackPanel>
+                    <TextBlock Text="{Binding Path=Id}"  />
+                </StackPanel>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
+</Window>
