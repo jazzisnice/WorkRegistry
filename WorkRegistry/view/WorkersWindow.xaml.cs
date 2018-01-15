@@ -23,6 +23,7 @@ namespace WorkRegistry.view
         public WorkersWindow()
         {
             InitializeComponent();
+            WorkerListbox.ItemsSource = Workers;
         }
 
         public List<Worker> Workers
@@ -31,6 +32,18 @@ namespace WorkRegistry.view
             {
                 return DbOperations.GetAllWorkers();
             }
+        }
+
+        public void TestEvent(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("aa");
+        }
+
+        private void EditWorker(object sender, RoutedEventArgs e)
+        {
+            // TODO worker edit in new window
+            Button button = sender as Button;
+            Console.WriteLine("a");
         }
     }
 }
