@@ -20,23 +20,23 @@ namespace WorkRegistry.view
     /// </summary>
     public partial class WorkersWindow : Window
     {
-        public WorkersWindow()
-        {
-            InitializeComponent();
-            WorkerListbox.ItemsSource = Workers;
-        }
-
-        public List<Worker> Workers
-        {
+        public List<Worker> Workers {
             get
             {
                 return DbOperations.GetAllWorkers();
             }
         }
 
-        public void TestEvent(object sender, RoutedEventArgs e)
+        public void RefreshView(object sender, EventArgs e)
         {
-            Console.WriteLine("aa");
+            Console.Write(DbOperations.GetAllWorkers().Count());
+        }
+
+        public WorkersWindow()
+        {
+            InitializeComponent();
+            //Workers = DbOperations.GetAllWorkers();
+            //WorkerListbox.ItemsSource = Workers;
         }
 
         private void EditWorker(object sender, RoutedEventArgs e)
@@ -44,6 +44,13 @@ namespace WorkRegistry.view
             // TODO worker edit in new window
             Button button = sender as Button;
             Console.WriteLine("a");
+        }
+
+        private void AddWorker(object sender, RoutedEventArgs e)
+        {
+            NewWorkerWindow window = new NewWorkerWindow();
+            window.Show();
+            window.Closed += RefreshView;
         }
     }
 }

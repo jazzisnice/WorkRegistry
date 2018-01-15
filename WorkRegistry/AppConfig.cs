@@ -13,6 +13,6 @@ namespace WorkRegistry
 
         }
 
-        public static String databasePath = "C:\\db\\workRegistryDb.sqlite";
+        public static String databasePath = "C:\\Db\\workRegistryDb.sqlite";
     }
 }

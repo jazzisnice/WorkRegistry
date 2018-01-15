@@ -6,23 +6,26 @@
         xmlns:local="clr-namespace:WorkRegistry.view"
         mc:Ignorable="d"
         Title="WorkersWindow" Height="600" Width="600">
-    
-    <ListBox x:Name="WorkerListbox" HorizontalAlignment="Left" Height="600" Margin="10,10,0,0" VerticalAlignment="Top" Width="600">
-        <ListBox.ItemTemplate>
-            <DataTemplate>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="280" />
-                        <ColumnDefinition Width="200" />
-                        <ColumnDefinition Width="120" />
-                    </Grid.ColumnDefinitions>
-                    
-                    <TextBlock Text="{Binding Path=Id}" Grid.Column="0" />
-                    <TextBlock Text="{Binding Path=Name}" Grid.Column="1" />
-                    <Button Click="EditWorker" Grid.Column="2">Módosítás</Button>
-                    
-                </Grid>
-            </DataTemplate>
-        </ListBox.ItemTemplate>
-    </ListBox>
+    <Grid>
+        <Button Content="Munkás hozzáadása" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="140" Click="AddWorker"/>
+        <ListBox x:Name="WorkerListbox" HorizontalAlignment="Left" Height="481" Margin="10,78,0,0" VerticalAlignment="Top" Width="572" ItemsSource="{Binding Workers}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="280" />
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="120" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{Binding Id}" Grid.Column="0" />
+                        <TextBlock Text="{Binding Name}" Grid.Column="1" />
+                        <Button Click="EditWorker" Grid.Column="2">Módosítás</Button>
+
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+
 </Window>

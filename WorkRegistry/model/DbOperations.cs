@@ -4,28 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
+using System.IO;
 
 namespace WorkRegistry.model
 {
     public static class DbOperations
     {
         // Stores the connection object to the database
-        public static SQLiteConnection db;
+        public static SQLiteConnection Db;
+        public static String DbPath = "C:\\Db\\workRegistryDb.sqlite";
 
         public static void InitDatabase()
         {
-            var Connection = new SQLiteConnection("C:\\db\\workRegistryDb.sqlite");
+            if (!File.Exists(DbPath))
+                /*if (!Directory.Exists(DbPath))
+                    Directory.CreateDirectory(DbPath);*/
+                File.Create("C:\\Db\\workRegistryDb.sqlite");
+            var Connection = new SQLiteConnection(DbPath);
             Connection.CreateTable<Worker>();
             Connection.CreateTable<Event>();
             Connection.CreateTable<WorkerTeam>();
             Connection.CreateTable<Team>();
-            db = Connection;
+            Db = Connection;
         }
 
         // Returns true if the add to the database is successful
         public static Boolean AddWorker(Worker worker)
         {
-            var result = db.Insert(worker);
+            var result = Db.Insert(worker);
             if (result > 0)
             {
                 return true;
@@ -38,7 +44,7 @@ namespace WorkRegistry.model
 
         public static List<Worker> GetAllWorkers()
         {
-            return db.Query<Worker>("SELECT * FROM WORKER");
+            return Db.Query<Worker>("SELECT * FROM WORKER");
         }
     }
 }
