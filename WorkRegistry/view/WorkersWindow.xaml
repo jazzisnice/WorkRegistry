@@ -5,22 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkRegistry.view"
         mc:Ignorable="d"
-        Title="WorkersWindow" Height="600" Width="600">
+        Title="WorkersWindow" Height="684" Width="861">
     <Grid>
         <Button Content="Munkás hozzáadása" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="140" Click="AddWorker"/>
-        <ListBox x:Name="WorkerListbox" HorizontalAlignment="Left" Height="481" Margin="10,78,0,0" VerticalAlignment="Top" Width="572" ItemsSource="{Binding Workers}">
+        <ListBox x:Name="WorkersListBox" HorizontalAlignment="Left" Height="565" Margin="10,78,0,0" VerticalAlignment="Top" Width="833" ItemsSource="{Binding Workers}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="280" />
                             <ColumnDefinition Width="200" />
-                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="80" />
+
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Text="{Binding Id}" Grid.Column="0" />
                         <TextBlock Text="{Binding Name}" Grid.Column="1" />
                         <Button Click="EditWorker" Grid.Column="2">Módosítás</Button>
+                        <Button Click="DeleteWorker" Grid.Column="3">Törlés</Button>
 
                     </Grid>
                 </DataTemplate>

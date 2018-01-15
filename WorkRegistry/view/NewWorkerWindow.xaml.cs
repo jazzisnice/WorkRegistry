@@ -20,8 +20,11 @@ namespace WorkRegistry.view
     /// </summary>
     public partial class NewWorkerWindow : Window
     {
-        public NewWorkerWindow()
+        public WorkersViewModel ViewModel;
+
+        public NewWorkerWindow(WorkersViewModel viewModel)
         {
+            ViewModel = viewModel;
             InitializeComponent();
         }
 
@@ -32,7 +35,7 @@ namespace WorkRegistry.view
                 // TODO validation
                 Name = WorkerNameTB.Text
             };
-            DbOperations.AddWorker(worker);
+            ViewModel.AddWorker(worker);
             this.Close();
         }
     }

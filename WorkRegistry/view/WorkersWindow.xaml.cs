@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,37 +21,39 @@ namespace WorkRegistry.view
     /// </summary>
     public partial class WorkersWindow : Window
     {
-        public List<Worker> Workers {
-            get
-            {
-                return DbOperations.GetAllWorkers();
-            }
-        }
-
-        public void RefreshView(object sender, EventArgs e)
-        {
-            Console.Write(DbOperations.GetAllWorkers().Count());
-        }
+        private WorkersViewModel ViewModel = new WorkersViewModel();
 
         public WorkersWindow()
         {
             InitializeComponent();
-            //Workers = DbOperations.GetAllWorkers();
-            //WorkerListbox.ItemsSource = Workers;
+            WorkersListBox.ItemsSource = ViewModel.Workers;
+            ViewModel.PropertyChanged += RefreshView;
+        }
+
+        public void RefreshView(object sender, PropertyChangedEventArgs e)
+        {
+            WorkersListBox.InvalidateArrange();
+            WorkersListBox.UpdateLayout();
         }
 
         private void EditWorker(object sender, RoutedEventArgs e)
         {
             // TODO worker edit in new window
             Button button = sender as Button;
-            Console.WriteLine("a");
         }
 
         private void AddWorker(object sender, RoutedEventArgs e)
         {
-            NewWorkerWindow window = new NewWorkerWindow();
+            NewWorkerWindow window = new NewWorkerWindow(ViewModel);
             window.Show();
-            window.Closed += RefreshView;
         }
+
+        private void DeleteWorker(object sender, RoutedEventArgs e)
+        {
+            var Sender = sender as Button;
+            ViewModel.DeleteWorker(Sender.DataContext as Worker);
+
+        }
+
     }
 }

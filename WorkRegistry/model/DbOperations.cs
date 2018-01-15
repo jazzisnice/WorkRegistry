@@ -42,6 +42,12 @@ namespace WorkRegistry.model
             }
         }
 
+        public static int DeleteWorker(Worker worker)
+        {
+            var result = Db.Delete(worker);
+            return result;
+        }
+
         public static List<Worker> GetAllWorkers()
         {
             return Db.Query<Worker>("SELECT * FROM WORKER");

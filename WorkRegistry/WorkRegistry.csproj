@@ -105,6 +105,7 @@
     <Compile Include="view\NewWorkerWindow.xaml.cs">
       <DependentUpon>NewWorkerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="viewmodel\WorkersViewModel.cs" />
     <Compile Include="view\WorkersWindow.xaml.cs">
       <DependentUpon>WorkersWindow.xaml</DependentUpon>
     </Compile>
