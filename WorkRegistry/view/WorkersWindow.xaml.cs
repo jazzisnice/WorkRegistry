@@ -38,13 +38,14 @@ namespace WorkRegistry.view
 
         private void EditWorker(object sender, RoutedEventArgs e)
         {
-            // TODO worker edit in new window
-            Button button = sender as Button;
+            var Sender = sender as Button;
+            NewWorkerWindow window = new NewWorkerWindow(ViewModel, Sender.DataContext as Worker);
+            window.Show();
         }
 
         private void AddWorker(object sender, RoutedEventArgs e)
         {
-            NewWorkerWindow window = new NewWorkerWindow(ViewModel);
+            NewWorkerWindow window = new NewWorkerWindow(ViewModel, new Worker());
             window.Show();
         }
 

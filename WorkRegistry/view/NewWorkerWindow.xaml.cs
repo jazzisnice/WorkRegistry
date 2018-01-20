@@ -21,21 +21,35 @@ namespace WorkRegistry.view
     public partial class NewWorkerWindow : Window
     {
         public WorkersViewModel ViewModel;
+        public Worker CurrentWorker
+        {
+            get;
+            set;
+        }
 
-        public NewWorkerWindow(WorkersViewModel viewModel)
+        // We are either adding or editing a current worker
+        public NewWorkerWindow(WorkersViewModel viewModel, Worker currentWorker)
         {
             ViewModel = viewModel;
+            if (currentWorker == null)
+                CurrentWorker = new Worker();
+            else
+                CurrentWorker = currentWorker;
+            this.DataContext = this;
             InitializeComponent();
         }
 
         private void AddNewWorker(object sender, RoutedEventArgs e)
         {
+            ViewModel.AddOrEditWorker(CurrentWorker);
+            /*
             Worker worker = new Worker()
             {
                 // TODO validation
-                Name = WorkerNameTB.Text
+                Name = WorkerNameTB.Text,
+                DailyFee = Int32.Parse(DailyFeeTB.Text)
             };
-            ViewModel.AddWorker(worker);
+            ViewModel.AddOrEditWorker(worker);*/
             this.Close();
         }
     }

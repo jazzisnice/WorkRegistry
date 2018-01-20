@@ -12,5 +12,8 @@ namespace WorkRegistry.model
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public String Name { get; set; }
+        public String Email { get; set; }
+        public int DailyFee { get; set; }
+        public String Comment { get; set; }
     }
 }

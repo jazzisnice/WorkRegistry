@@ -29,17 +29,9 @@ namespace WorkRegistry.model
         }
 
         // Returns true if the add to the database is successful
-        public static Boolean AddWorker(Worker worker)
+        public static int AddOrEditWorker(Worker worker)
         {
-            var result = Db.Insert(worker);
-            if (result > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return Db.InsertOrReplace(worker);
         }
 
         public static int DeleteWorker(Worker worker)

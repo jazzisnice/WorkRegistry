@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkRegistry.view"
         mc:Ignorable="d"
-        Title="NewWorkerWindow" Height="218.112" Width="300">
+        Title="NewWorkerWindow" Height="277.352" Width="313.463">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -14,16 +14,22 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="100" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <Label>Név:</Label>
-        <TextBox Grid.Column="1" Margin="0,0,0,10" Name="WorkerNameTB" />
-        <Label Grid.Row="1">E-mail:</Label>
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" Name="WorkerEmailTB" />
-        <Label Grid.Row="2">Megjegyzés:</Label>
-        <TextBox Grid.Row="2" Grid.Column="1" AcceptsReturn="True" Name="WorkerCommentTB" />
+        <TextBox Grid.Column="1" Margin="0,5,10,5" Name="WorkerNameTB" Text="{Binding CurrentWorker.Name}" />
 
-        <Button Grid.Row="3" Grid.Column="1" Click="AddNewWorker">Ok</Button>
+        <Label Grid.Row="1">E-mail:</Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,5,10,5" Name="WorkerEmailTB" Text="{Binding CurrentWorker.Email}"/>
+
+        <Label Grid.Row="2">Napidíj:</Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,5,10,5" Name="DailyFeeTB" Text="{Binding CurrentWorker.DailyFee}"/>
+
+        <Label Grid.Row="3">Megjegyzés:</Label>
+        <TextBox Grid.Row="3" Grid.Column="1" AcceptsReturn="True"  Margin="0,5,10,5" Name="WorkerCommentTB" Text="{Binding CurrentWorker.Comment}"/>
+
+        <Button Grid.Row="4" Grid.Column="1" Click="AddNewWorker" Margin="0,7,10,-7">Ok</Button>
     </Grid>
 </Window>

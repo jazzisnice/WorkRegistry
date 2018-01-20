@@ -15,10 +15,15 @@ namespace WorkRegistry.view
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public void AddWorker(Worker newWorker)
+        public void AddOrEditWorker(Worker newWorker)
         {
-            DbOperations.AddWorker(newWorker);
-            Workers.Add(newWorker);
+            // TODO nagyon, hogy lehet hogy ne kelljen az összeset újra berakni?? 
+            DbOperations.AddOrEditWorker(newWorker);
+            Workers.Clear();
+            foreach (Worker worker in DbOperations.GetAllWorkers())
+            {
+                Workers.Add(worker);
+            }
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs("Workers"));
@@ -32,6 +37,11 @@ namespace WorkRegistry.view
                 PropertyChanged(this, new PropertyChangedEventArgs("Workers"));
             Workers.Remove(Workers.Where(x => x.Id == worker.Id).Single());
             return deleted;
+        }
+
+        public void EditWorker()
+        {
+
         }
     }
 }
