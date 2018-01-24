@@ -23,12 +23,23 @@ namespace WorkRegistry.view
     {
         private TeamsViewModel TeamsViewModel;
         private Team CurrentTeam;
+        private List<Worker> ExcludedWorkers = new List<Worker>();
 
         public NewTeamWindow(TeamsViewModel teamsViewModel, Team currentTeam)
         {
             TeamsViewModel = teamsViewModel;
             CurrentTeam = currentTeam;
             InitializeComponent();
+
+            foreach (Worker worker in DbOperations.GetAllWorkers())
+            {
+                if (!CurrentTeam.Workers.Contains(worker))
+                {
+                    ExcludedWorkers.Add(worker);
+                }
+            }
+
+            ExcludedWorkersListView.ItemsSource = ExcludedWorkers;
         }
     }
 }

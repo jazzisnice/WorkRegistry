@@ -8,5 +8,6 @@ namespace WorkRegistry.viewmodel
 {
     class NewTeamViewModel
     {
+
     }
 }

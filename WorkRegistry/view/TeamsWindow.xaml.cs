@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WorkRegistry.model;
 using WorkRegistry.viewmodel;
 
 namespace WorkRegistry.view
@@ -32,7 +33,7 @@ namespace WorkRegistry.view
 
         private void NewTeamButton_Click(object sender, RoutedEventArgs e)
         {
-            NewTeamWindow newTeamWindow = new NewTeamWindow();
+            NewTeamWindow newTeamWindow = new NewTeamWindow(TeamsViewModel, new Team());
             newTeamWindow.Show();
         }
     }
