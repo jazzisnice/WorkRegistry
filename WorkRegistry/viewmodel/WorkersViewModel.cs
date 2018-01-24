@@ -24,10 +24,7 @@ namespace WorkRegistry.view
             {
                 Workers.Add(worker);
             }
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs("Workers"));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Workers"));
         }
 
         public int DeleteWorker(Worker worker)

@@ -29,6 +29,12 @@ namespace WorkRegistry.model
         }
 
         // Returns true if the add to the database is successful
+        public static int AddOrEditTeam(Team newTeam)
+        {
+            return Db.InsertOrReplace(newTeam);
+        }
+
+        // Returns true if the add to the database is successful
         public static int AddOrEditWorker(Worker worker)
         {
             return Db.InsertOrReplace(worker);
@@ -43,6 +49,30 @@ namespace WorkRegistry.model
         public static List<Worker> GetAllWorkers()
         {
             return Db.Query<Worker>("SELECT * FROM WORKER");
+        }
+
+        public static List<Team> GetAllTeams()
+        {
+            return Db.Query<Team>("SELECT * FROM TEAM");
+        }
+
+        // Returns workers which are NOT in the team given in the parameter
+        public static List<Worker> GetExcludedWorkers(Team team)
+        {
+            List<Worker> AllWorkers = GetAllWorkers();
+            List<Worker> TeamWorkers = team.Workers;
+
+            List<Worker> ExcludedWorkers = new List<Worker>();
+
+            foreach (Worker worker in AllWorkers)
+            {
+                if (!TeamWorkers.Contains(worker))
+                {
+                    ExcludedWorkers.Add(worker);
+                }
+            }
+
+            return ExcludedWorkers;
         }
     }
 }

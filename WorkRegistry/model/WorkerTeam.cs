@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,9 @@ namespace WorkRegistry.model
 {
     class WorkerTeam
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-        [Indexed]
+        [ForeignKey(typeof(Worker))]
         public int WorkerId { get; set; }
-        [Indexed]
+        [ForeignKey(typeof(Team))]
         public int TeamId { get; set; }
     }
 }

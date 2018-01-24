@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using WorkRegistry.view;
 using SQLite;
 using WorkRegistry.model;
+using WorkRegistry.viewmodel;
 
 namespace WorkRegistry
 {
@@ -37,7 +38,7 @@ namespace WorkRegistry
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TeamWindow window = new TeamWindow();
+            TeamsWindow window = new TeamsWindow(new TeamsViewModel());
             window.Show();
         }
     }

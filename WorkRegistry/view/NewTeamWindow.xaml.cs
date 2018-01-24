@@ -11,16 +11,23 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WorkRegistry.model;
+using WorkRegistry.viewmodel;
 
 namespace WorkRegistry.view
 {
     /// <summary>
-    /// Interaction logic for TeamWindow.xaml
+    /// Interaction logic for NewTeamWindow.xaml
     /// </summary>
-    public partial class TeamWindow : Window
+    public partial class NewTeamWindow : Window
     {
-        public TeamWindow()
+        private TeamsViewModel TeamsViewModel;
+        private Team CurrentTeam;
+
+        public NewTeamWindow(TeamsViewModel teamsViewModel, Team currentTeam)
         {
+            TeamsViewModel = teamsViewModel;
+            CurrentTeam = currentTeam;
             InitializeComponent();
         }
     }

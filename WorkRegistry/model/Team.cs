@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,13 @@ using System.Threading.Tasks;
 
 namespace WorkRegistry.model
 {
-    class Team
+    public class Team
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Name { get; set; }
+
+        [ManyToMany(typeof(WorkerTeam))]
+        public List<Worker> Workers { get; set; }
     }
 }
