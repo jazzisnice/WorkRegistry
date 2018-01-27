@@ -6,9 +6,21 @@
         xmlns:local="clr-namespace:WorkRegistry"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <StackPanel>
-        <Button Name="WorkersButton" Click="WorkersButton_Click">Munkások</Button>
-        <Button Click="Button_Click">Csapatok</Button>
-        <Button>Rendezvények</Button>
-    </StackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Button Name="WorkersButton" Click="WorkersButton_Click" Grid.Column="0" Grid.Row="0"  Margin="20 20 20 20">Munkások</Button>
+        <Button Name="TeamsButton" Click="Button_Click" Grid.Column="1" Grid.Row="0" Margin="20 20 20 20">Csapatok</Button>
+        <Button Name ="JobsButton" Grid.Column="2" Grid.Row="0"  Margin="20 20 20 20" >Munkák</Button>
+    </Grid>
 </Window>

@@ -12,6 +12,7 @@ namespace WorkRegistry.model
     {
         [ForeignKey(typeof(Worker))]
         public int WorkerId { get; set; }
+
         [ForeignKey(typeof(Team))]
         public int TeamId { get; set; }
     }

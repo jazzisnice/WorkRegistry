@@ -31,5 +31,13 @@ namespace WorkRegistry.viewmodel
             }
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Workers"));
         }
+
+        public void DeleteTeam(Team currentTeam)
+        {
+            DbOperations.DeleteTeam(currentTeam);
+            Teams.Remove(currentTeam);
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs("Teams"));
+        }
     }
 }

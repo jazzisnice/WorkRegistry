@@ -5,16 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkRegistry.view"
         mc:Ignorable="d"
-        Title="TeamsWindow" Height="300" Width="300">
+        Title="TeamsWindow" Height="316.862" Width="543.091">
+    
+    <Window.Resources>
+        <DataTemplate x:Key="SelectButtonColumnDataTemplate">
+            <Button Content="Select" Command="{Binding SelectItemCommand}" />
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
-        <ListView x:Name="teamsListBox" HorizontalAlignment="Left" Height="Auto" Margin="10,10,0,0" VerticalAlignment="Top" Width="423">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Id" Width="120" DisplayMemberBinding="{Binding Id}" />
-                    <GridViewColumn Header="Név" Width="150" DisplayMemberBinding="{Binding Name}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <ItemsControl x:Name="teamsListBox">
+            
+            
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <Label Content="{Binding Name}"  FontSize="22"/>
+                            <Label Content="{Binding DailyFeeSum}" ContentStringFormat="Napidíj: #{0}" />
+                        </StackPanel> 
+                        <Button Grid.Column="1" Margin="3 3 3 3" Click="ModifyTeam">Módosítás</Button>
+                        <Button Grid.Column="2" Margin="3 3 3 3" Click="DeleteTeam">Törlés</Button>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
         <Button Content="Új csapat felvétele" HorizontalAlignment="Left" Margin="10,239,0,0" VerticalAlignment="Top" Width="124" Click="NewTeamButton_Click"/>
     </Grid>
 </Window>

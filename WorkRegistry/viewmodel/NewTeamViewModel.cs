@@ -87,6 +87,7 @@ namespace WorkRegistry.viewmodel
 
         public void Save()
         {
+            CurrentTeam.Workers = IncludedWorkers.ToList();
             TeamsViewModel.AddOrEditTeam(CurrentTeam);
         }
     }

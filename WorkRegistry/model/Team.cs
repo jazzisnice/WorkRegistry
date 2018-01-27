@@ -13,10 +13,21 @@ namespace WorkRegistry.model
         [PrimaryKey, AutoIncrement]
         public int? Id { get; set; }
         public string Name { get; set; }
-
         [ManyToMany(typeof(WorkerTeam))]
         public List<Worker> Workers { get; set; }
 
+        public int DailyFeeSum
+        {
+            get
+            {
+                var result = 0;
+                foreach (Worker worker in Workers)
+                {
+                    result += worker.DailyFee;
+                }
+                return result;
+            }
+        }
         public Team()
         {
             Workers = new List<Worker>();

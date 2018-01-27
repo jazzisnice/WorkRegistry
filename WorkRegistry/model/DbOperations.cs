@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite;
 using System.IO;
+using SQLiteNetExtensions.Extensions;
 
 namespace WorkRegistry.model
 {
@@ -29,9 +30,9 @@ namespace WorkRegistry.model
         }
 
         // Returns true if the add to the database is successful
-        public static int AddOrEditTeam(Team newTeam)
+        public static void AddOrEditTeam(Team newTeam)
         {
-            return Db.InsertOrReplace(newTeam);
+            Db.InsertOrReplaceWithChildren(newTeam);
         }
 
         // Returns true if the add to the database is successful
@@ -48,12 +49,18 @@ namespace WorkRegistry.model
 
         public static List<Worker> GetAllWorkers()
         {
-            return Db.Query<Worker>("SELECT * FROM WORKER");
+            return Db.GetAllWithChildren<Worker>();
         }
 
         public static List<Team> GetAllTeams()
         {
-            return Db.Query<Team>("SELECT * FROM TEAM");
+            return Db.GetAllWithChildren<Team>();
+        }
+
+        internal static void DeleteTeam(Team currentTeam)
+        {
+            Db.Query<Team>("DELETE FROM WorkerTeam WHERE TeamId=?", currentTeam.Id.ToString());
+            Db.Delete(currentTeam);
         }
 
         // Returns workers which are NOT in the team given in the parameter

@@ -37,5 +37,19 @@ namespace WorkRegistry.view
             NewTeamWindow newTeamWindow = new NewTeamWindow(new NewTeamViewModel(TeamsViewModel, null));
             newTeamWindow.Show();
         }
+
+        private void ModifyTeam(object sender, RoutedEventArgs e)
+        {
+            Button source = sender as Button;
+            Team CurrentTeam = source.DataContext as Team;
+            NewTeamWindow ModifyTeamWindow = new NewTeamWindow(new NewTeamViewModel(TeamsViewModel, CurrentTeam));
+        }
+
+        private void DeleteTeam(object sender, RoutedEventArgs e)
+        {
+            Button source = sender as Button;
+            Team CurrentTeam = source.DataContext as Team;
+            TeamsViewModel.DeleteTeam(CurrentTeam);
+        }
     }
 }
