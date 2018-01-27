@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkRegistry.view"
         mc:Ignorable="d"
-        Title="NewTeamWindow" Height="461.334" Width="800">
-    <Grid Margin="0,0,-8,-4">
+        Title="NewTeamWindow" Height="461.334" Width="912.486">
+    <Grid Margin="0,0,2,-4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" MinWidth="400"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ListView Name="ExcludedWorkersListView" HorizontalAlignment="Stretch" Height="273" VerticalAlignment="Top" Margin="10,59,0,0" Grid.Column="0">
+        <ListView Name="ExcludedWorkersListView" HorizontalAlignment="Stretch" Height="273" VerticalAlignment="Top" Margin="10,59,10,0" Grid.Column="0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Név" Width="120" DisplayMemberBinding="{Binding Name}" />
@@ -22,7 +22,7 @@
             </ListView.View>
         </ListView>
 
-        <ListView Name="IncludedWorkersListView" HorizontalAlignment="Stretch" Height="273" Margin="10,59,18,0" VerticalAlignment="Top" Grid.Column="1">
+        <ListView Name="IncludedWorkersListView" HorizontalAlignment="Stretch" Height="273" Margin="87,59,18,0" VerticalAlignment="Top" Grid.Column="1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Név" Width="120" DisplayMemberBinding="{Binding Name}" />
@@ -32,10 +32,13 @@
             </ListView.View>
         </ListView>
         <Label Content="Munkások&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Width="390" FontSize="22" Height="39"/>
-        <Label Content="A csapat tagjai" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.553,0.244" FontSize="22" Width="372"/>
+        <Label Content="A csapat tagjai" Grid.Column="1" HorizontalAlignment="Left" Margin="93,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.553,0.244" FontSize="22" Width="372"/>
         <Label Content="Csapatnév:" HorizontalAlignment="Left" Margin="10,343,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="113,347,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="287" />
-        <Button Content="Csapat felvétele" Grid.Column="1" Margin="0,392,18,0" VerticalAlignment="Top" Height="24" HorizontalAlignment="Right" Width="135"/>
+        <TextBox HorizontalAlignment="Left" Name="CurrentTeamName" Height="23" Margin="113,347,0,0" TextWrapping="Wrap" Text="{Binding ViewModel.CurrentTeam.Name}" VerticalAlignment="Top" Width="277" />
+        <Button Content="Csapat felvétele" Grid.Column="1" Margin="0,392,18,0" VerticalAlignment="Top" Height="24" HorizontalAlignment="Right" Width="135" Click="SaveTeam_Click" />
+        
+        <Button x:Name="AddWorkerToTeamButton" Content="Hozzáadás" Click="AddWorkerToTeamButton_Click" Grid.Column="1" HorizontalAlignment="Left" Margin="0,83,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="RemoveWorkerFromTeamButton" Content="Eltávolítás" Click="RemoveWorkerFromTeamButton_Click" Grid.Column="1" HorizontalAlignment="Left" Margin="0,108,0,0" VerticalAlignment="Top" Width="75"/>
 
 
     </Grid>

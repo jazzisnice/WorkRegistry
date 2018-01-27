@@ -33,7 +33,8 @@ namespace WorkRegistry.view
 
         private void NewTeamButton_Click(object sender, RoutedEventArgs e)
         {
-            NewTeamWindow newTeamWindow = new NewTeamWindow(TeamsViewModel, new Team());
+            // Adding null parameter, since we want to create a new team..
+            NewTeamWindow newTeamWindow = new NewTeamWindow(new NewTeamViewModel(TeamsViewModel, null));
             newTeamWindow.Show();
         }
     }

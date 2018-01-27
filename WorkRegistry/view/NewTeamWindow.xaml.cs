@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,25 +23,49 @@ namespace WorkRegistry.view
     /// </summary>
     public partial class NewTeamWindow : Window
     {
-        private TeamsViewModel TeamsViewModel;
-        private Team CurrentTeam;
-        private List<Worker> ExcludedWorkers = new List<Worker>();
-
-        public NewTeamWindow(TeamsViewModel teamsViewModel, Team currentTeam)
+        NewTeamViewModel ViewModel
         {
-            TeamsViewModel = teamsViewModel;
-            CurrentTeam = currentTeam;
+            get; set;
+        }
+
+        public NewTeamWindow(NewTeamViewModel newTeamViewModel)
+        {
+            ViewModel = newTeamViewModel;
+            ViewModel.PropertyChanged += RefreshView;
             InitializeComponent();
 
-            foreach (Worker worker in DbOperations.GetAllWorkers())
-            {
-                if (!CurrentTeam.Workers.Contains(worker))
-                {
-                    ExcludedWorkers.Add(worker);
-                }
-            }
+            ExcludedWorkersListView.ItemsSource = newTeamViewModel.ExcludedWorkers;
+            IncludedWorkersListView.ItemsSource = newTeamViewModel.IncludedWorkers;
+        }
 
-            ExcludedWorkersListView.ItemsSource = ExcludedWorkers;
+        public void RefreshView(object sender, PropertyChangedEventArgs e)
+        {
+            IncludedWorkersListView.InvalidateArrange();
+            IncludedWorkersListView.UpdateLayout();
+
+            ExcludedWorkersListView.InvalidateArrange();
+            ExcludedWorkersListView.UpdateLayout();
+        }
+
+        private void AddWorkerToTeamButton_Click(object sender, RoutedEventArgs e)
+        {
+            Worker SelectedWorker = ExcludedWorkersListView.SelectedItem as Worker;
+            ViewModel.AddWorkerToTeam(SelectedWorker);
+        }
+
+        private void RemoveWorkerFromTeamButton_Click(object sender, RoutedEventArgs e)
+        {
+            Worker SelectedWorker = IncludedWorkersListView.SelectedItem as Worker;
+            ViewModel.RemoveWorkerFromTeam(SelectedWorker);
+        }
+
+        private void SaveTeam_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO Bind testbox to teams name is currently not working!!!
+            ViewModel.CurrentTeam.Name = CurrentTeamName.Text;
+            ViewModel.Save();
+            this.Close();
+            // Console.WriteLine(ViewModel.CurrentTeam.Name);
         }
     }
 }
