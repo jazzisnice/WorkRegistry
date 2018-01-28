@@ -20,6 +20,12 @@
                     <GridViewColumn Header="Komment" Width="150" DisplayMemberBinding="{Binding Comment}" />
                 </GridView>
             </ListView.View>
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="AddWorkerToTeamButton_Click" />
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
 
         <ListView Name="IncludedWorkersListView" HorizontalAlignment="Stretch" Height="273" Margin="87,59,18,0" VerticalAlignment="Top" Grid.Column="1">
@@ -30,6 +36,12 @@
                     <GridViewColumn Header="Komment" Width="150" DisplayMemberBinding="{Binding Comment}" />
                 </GridView>
             </ListView.View>
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="RemoveWorkerFromTeamButton_Click" />
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
         <Label Content="Munkások&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Width="390" FontSize="22" Height="39"/>
         <Label Content="A csapat tagjai" Grid.Column="1" HorizontalAlignment="Left" Margin="93,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.553,0.244" FontSize="22" Width="372"/>

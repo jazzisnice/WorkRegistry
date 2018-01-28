@@ -43,6 +43,7 @@ namespace WorkRegistry.view
             Button source = sender as Button;
             Team CurrentTeam = source.DataContext as Team;
             NewTeamWindow ModifyTeamWindow = new NewTeamWindow(new NewTeamViewModel(TeamsViewModel, CurrentTeam));
+            ModifyTeamWindow.Show();
         }
 
         private void DeleteTeam(object sender, RoutedEventArgs e)

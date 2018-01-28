@@ -104,9 +104,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="model\Car.cs" />
     <Compile Include="model\DbOperations.cs" />
+    <Compile Include="viewmodel\CarsViewModel.cs" />
     <Compile Include="viewmodel\NewTeamViewModel.cs" />
     <Compile Include="viewmodel\TeamsViewModel.cs" />
+    <Compile Include="view\CarsWindow.xaml.cs">
+      <DependentUpon>CarsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\NewTeamWindow.xaml.cs">
       <DependentUpon>NewTeamWindow.xaml</DependentUpon>
     </Compile>
@@ -133,6 +138,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="view\CarsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\NewTeamWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

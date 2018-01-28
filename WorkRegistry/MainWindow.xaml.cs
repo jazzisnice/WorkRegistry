@@ -36,9 +36,15 @@ namespace WorkRegistry
             window.Show();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void TeamsButton_Click(object sender, RoutedEventArgs e)
         {
             TeamsWindow window = new TeamsWindow(new TeamsViewModel());
+            window.Show();
+        }
+
+        private void CarsButton_Click(object sender, RoutedEventArgs e)
+        {
+            CarsWindow window = new CarsWindow(new CarsViewModel());
             window.Show();
         }
     }

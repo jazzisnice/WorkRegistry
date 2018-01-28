@@ -15,6 +15,20 @@ namespace WorkRegistry.model
             this.Id = null;
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+
+            Worker ExaminedWorker = obj as Worker;
+            return this.Id == ExaminedWorker.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return (int)Id;
+        }
+
         [PrimaryKey, AutoIncrement]
         public int? Id { get; set; }
         public String Name { get; set; }

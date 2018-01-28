@@ -57,6 +57,11 @@ namespace WorkRegistry.model
             return Db.GetAllWithChildren<Team>();
         }
 
+        public static List<Car> GetAllCars()
+        {
+            return Db.GetAllWithChildren<Car>();
+        }
+
         internal static void DeleteTeam(Team currentTeam)
         {
             Db.Query<Team>("DELETE FROM WorkerTeam WHERE TeamId=?", currentTeam.Id.ToString());

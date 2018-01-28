@@ -20,7 +20,9 @@
         </Grid.RowDefinitions>
 
         <Button Name="WorkersButton" Click="WorkersButton_Click" Grid.Column="0" Grid.Row="0"  Margin="20 20 20 20">Munkások</Button>
-        <Button Name="TeamsButton" Click="Button_Click" Grid.Column="1" Grid.Row="0" Margin="20 20 20 20">Csapatok</Button>
-        <Button Name ="JobsButton" Grid.Column="2" Grid.Row="0"  Margin="20 20 20 20" >Munkák</Button>
+        <Button Name="TeamsButton" Click="TeamsButton_Click" Grid.Column="1" Grid.Row="0" Margin="20 20 20 20">Csapatok</Button>
+        <Button Name ="CarsButton" Click="CarsButton_Click" Grid.Column="2" Grid.Row="0"  Margin="20 20 20 20" >Autók</Button>
+
+        <Button Name ="JobsButton" Grid.Column="0" Grid.Row="1"  Margin="20 20 20 20" >Munkák</Button>
     </Grid>
 </Window>

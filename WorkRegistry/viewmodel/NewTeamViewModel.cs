@@ -13,25 +13,13 @@ namespace WorkRegistry.viewmodel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public TeamsViewModel TeamsViewModel
-        {
-            get; set;
-        }
+        public TeamsViewModel TeamsViewModel { get; set; }
 
-        public Team CurrentTeam
-        {
-            get; set;
-        }
+        public Team CurrentTeam { get; set; }
 
-        public ObservableCollection<Worker> ExcludedWorkers
-        {
-            get; set;
-        }
+        public ObservableCollection<Worker> ExcludedWorkers { get; set; }
 
-        public ObservableCollection<Worker> IncludedWorkers
-        {
-            get; set;
-        }
+        public ObservableCollection<Worker> IncludedWorkers { get; set; }
 
         public NewTeamViewModel(TeamsViewModel teamsViewModel, Team currentTeam)
         {
@@ -42,6 +30,7 @@ namespace WorkRegistry.viewmodel
             if (currentTeam != null)
             {
                 IncludedWorkers = new ObservableCollection<Worker>(CurrentTeam.Workers);
+                ExcludedWorkers = new ObservableCollection<Worker>();
                 foreach (Worker worker in DbOperations.GetAllWorkers())
                 {
                     if (!IncludedWorkers.Contains(worker))
