@@ -26,7 +26,7 @@ namespace WorkRegistry.model
 
         public override int GetHashCode()
         {
-            return (int)Id;
+            return Id == null ? -1 : (int)Id;
         }
 
         [PrimaryKey, AutoIncrement]

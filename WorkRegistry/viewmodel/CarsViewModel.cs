@@ -10,5 +10,10 @@ namespace WorkRegistry.viewmodel
     public class CarsViewModel
     {
         public List<Car> Cars { get; set; }
+
+        public CarsViewModel()
+        {
+            Cars = DbOperations.GetAllCars();
+        }
     }
 }

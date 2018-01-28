@@ -26,6 +26,7 @@ namespace WorkRegistry.model
             Connection.CreateTable<Event>();
             Connection.CreateTable<WorkerTeam>();
             Connection.CreateTable<Team>();
+            Connection.CreateTable<Car>();
             Db = Connection;
         }
 

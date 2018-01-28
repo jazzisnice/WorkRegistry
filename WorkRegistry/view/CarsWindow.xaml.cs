@@ -24,7 +24,26 @@ namespace WorkRegistry.view
 
         public CarsWindow(CarsViewModel carsViewModel)
         {
+            ViewModel = carsViewModel;
             InitializeComponent();
+
+            carsListBox.ItemsSource = ViewModel.Cars;
+        }
+
+        private void ModifyCar(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DeleteCar(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void AddCarButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewCarWindow window = new NewCarWindow(new NewCarViewModel(ViewModel, null));
+            window.Show();
         }
     }
 }

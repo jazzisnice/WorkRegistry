@@ -45,7 +45,7 @@ namespace WorkRegistry.view
             NewTeamWindow ModifyTeamWindow = new NewTeamWindow(new NewTeamViewModel(TeamsViewModel, CurrentTeam));
             ModifyTeamWindow.Show();
         }
-
+        
         private void DeleteTeam(object sender, RoutedEventArgs e)
         {
             Button source = sender as Button;
