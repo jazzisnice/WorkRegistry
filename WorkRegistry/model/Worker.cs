@@ -10,6 +10,21 @@ namespace WorkRegistry.model
 {
     public class Worker
     {
+        [PrimaryKey, AutoIncrement]
+        public int? Id { get; set; }
+        public String Name { get; set; }
+        public String Email { get; set; }
+        public int DailyFee { get; set; }
+        public String Comment { get; set; }
+        public DateTime BirthDate { get; set; }
+        public String BirthPlace { get; set; }
+        public Boolean Active { get; set; }
+        public String PhoneNumber { get; set; }
+
+
+        [ManyToMany(typeof(WorkerTeam))]
+        public List<Team> Teams { get; set; }
+
         public Worker()
         {
             this.Id = null;
@@ -28,15 +43,5 @@ namespace WorkRegistry.model
         {
             return Id == null ? -1 : (int)Id;
         }
-
-        [PrimaryKey, AutoIncrement]
-        public int? Id { get; set; }
-        public String Name { get; set; }
-        public String Email { get; set; }
-        public int DailyFee { get; set; }
-        public String Comment { get; set; }
-
-        [ManyToMany(typeof(WorkerTeam))]
-        public List<Team> Teams { get; set; }
     }
 }

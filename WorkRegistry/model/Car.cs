@@ -10,14 +10,12 @@ namespace WorkRegistry.model
     public class Car
     {
         [PrimaryKey, AutoIncrement]
-        public int? Id
-        {
-            get; set;
-        }
+        public int? Id { get; set; }
         // TODO should this be an enum??? 
         public String Type { get; set; }
         public String PlateNumber { get; set; }
         public Boolean Active { get; set; }
         public String Comment { get; set; }
+        public int Consumption { get; set; }
     }
 }

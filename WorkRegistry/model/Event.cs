@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace WorkRegistry.model
 {
-    class Event
+    class Task
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public String Place { get; set; }
+        public String Buyer { get; set; }
     }
 }

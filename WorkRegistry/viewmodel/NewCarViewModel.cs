@@ -10,17 +10,16 @@ namespace WorkRegistry.viewmodel
     public class NewCarViewModel
     {
         private CarsViewModel CarsViewModel;
-        public Car CurrentCar;
 
         // If the currentCar is null, we are adding a new one, else we are editing an existing car
-        public NewCarViewModel(CarsViewModel carsViewModel, Car currentCar)
+        public NewCarViewModel(CarsViewModel carsViewModel)
         {
-            if (currentCar == null)
-            {
-                CurrentCar = new Car();
-            }
+            CarsViewModel = carsViewModel;
+        }
 
-
+        public void SaveCar(Car currentCar)
+        {
+            CarsViewModel.AddOrEditCar(currentCar);
         }
     }
 }

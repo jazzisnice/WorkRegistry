@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WorkRegistry.model;
 using WorkRegistry.viewmodel;
 
 namespace WorkRegistry.view
@@ -37,12 +38,14 @@ namespace WorkRegistry.view
 
         private void DeleteCar(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Button DeleteButton = sender as Button;
+            Car CarToDelete = DeleteButton.DataContext as Car;
+            ViewModel.DeleteCar(CarToDelete);
         }
 
         private void AddCarButton_Click(object sender, RoutedEventArgs e)
         {
-            NewCarWindow window = new NewCarWindow(new NewCarViewModel(ViewModel, null));
+            NewCarWindow window = new NewCarWindow(new NewCarViewModel(ViewModel), null);
             window.Show();
         }
     }

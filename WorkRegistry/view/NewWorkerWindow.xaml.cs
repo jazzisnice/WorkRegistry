@@ -42,14 +42,6 @@ namespace WorkRegistry.view
         private void AddNewWorker(object sender, RoutedEventArgs e)
         {
             ViewModel.AddOrEditWorker(CurrentWorker);
-            /*
-            Worker worker = new Worker()
-            {
-                // TODO validation
-                Name = WorkerNameTB.Text,
-                DailyFee = Int32.Parse(DailyFeeTB.Text)
-            };
-            ViewModel.AddOrEditWorker(worker);*/
             this.Close();
         }
     }

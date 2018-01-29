@@ -23,11 +23,21 @@ namespace WorkRegistry.model
                 File.Create("C:\\Db\\workRegistryDb.sqlite");
             var Connection = new SQLiteConnection(DbPath);
             Connection.CreateTable<Worker>();
-            Connection.CreateTable<Event>();
+            Connection.CreateTable<Task>();
             Connection.CreateTable<WorkerTeam>();
             Connection.CreateTable<Team>();
             Connection.CreateTable<Car>();
             Db = Connection;
+        }
+
+        internal static void AddOrEditCar(Car car)
+        {
+            Db.InsertOrReplaceWithChildren(car);
+        }
+
+        internal static void RemoveCar(Car car)
+        {
+            Db.Delete(car);
         }
 
         // Returns true if the add to the database is successful

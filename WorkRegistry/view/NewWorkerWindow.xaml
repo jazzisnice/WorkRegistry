@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkRegistry.view"
         mc:Ignorable="d"
-        Title="NewWorkerWindow" Height="277.352" Width="313.463">
+        Title="NewWorkerWindow" Height="331.08" Width="313.463">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -27,9 +29,15 @@
         <Label Grid.Row="2">Napidíj:</Label>
         <TextBox Grid.Row="2" Grid.Column="1" Margin="0,5,10,5" Name="DailyFeeTB" Text="{Binding CurrentWorker.DailyFee}"/>
 
-        <Label Grid.Row="3">Megjegyzés:</Label>
-        <TextBox Grid.Row="3" Grid.Column="1" AcceptsReturn="True"  Margin="0,5,10,5" Name="WorkerCommentTB" Text="{Binding CurrentWorker.Comment}"/>
+        <Label Grid.Row="3">Születési hely:</Label>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="0,5,10,5" Name="BirthPlaceTB" Text="{Binding CurrentWorker.BirthPlace}"/>
 
-        <Button Grid.Row="4" Grid.Column="1" Click="AddNewWorker" Margin="0,7,10,-7">Ok</Button>
+        <Label Grid.Row="4">Születési idő:</Label>
+        <DatePicker Grid.Row="4" Grid.Column="1" Margin="0,5,10,5" Name="BirthDateTB" Text="{Binding CurrentWorker.BirthDate}"/>
+
+        <Label Grid.Row="5">Megjegyzés:</Label>
+        <TextBox Grid.Row="5" Grid.Column="1" AcceptsReturn="True"  Margin="0,5,10,5" Name="WorkerCommentTB" Text="{Binding CurrentWorker.Comment}"/>
+
+        <Button Grid.Row="6" Grid.Column="1" Click="AddNewWorker" Margin="0,0,10,10" Height="22" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="55">Mentés</Button>
     </Grid>
 </Window>
