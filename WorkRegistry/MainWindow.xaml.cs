@@ -58,5 +58,12 @@ namespace WorkRegistry
 //            WorksWindow worksWindow = new WorksWindow(new WorksViewModel());
 //            worksWindow.Show();
         }
+
+        private void AddWork_Click(object sender, RoutedEventArgs e)
+        {
+            Work work = new Work();
+            NewWorkWindow newWorkWindow = new NewWorkWindow(worksViewModel, work);
+            newWorkWindow.Show();
+        }
     }
 }

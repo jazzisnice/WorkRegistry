@@ -13,22 +13,32 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"></RowDefinition>
-            <RowDefinition Height="3*"></RowDefinition>
-            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="466*"></RowDefinition>
+            <RowDefinition Height="103*"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button Name="WorkersButton" Click="WorkersButton_Click" Grid.Column="0" Grid.Row="0"  Margin="20,20,20,194">Munkások</Button>
-        <Button Name="TeamsButton" Click="TeamsButton_Click" Grid.Column="0" Margin="20,115,20,96">Csapatok</Button>
-        <Button Name ="CarsButton" Click="CarsButton_Click" Grid.Column="0"  Margin="20,165,20,49" >Autók</Button>
-        <Button Name ="JobsButton" Grid.Column="0"  Margin="20,67,20,146" Click="JobsButton_Click" >Munkák</Button>
+        <Button Name="WorkersButton" Click="WorkersButton_Click" Grid.Column="0" Grid.Row="0"  Margin="20,20,20,0" Height="50" VerticalAlignment="Top">Munkások</Button>
+        <Button Name="TeamsButton" Click="TeamsButton_Click" Grid.Column="0" Margin="20,75,20,0" Height="50" VerticalAlignment="Top">Csapatok</Button>
+        <Button Name ="CarsButton" Click="CarsButton_Click" Grid.Column="0"  Margin="20,130,20,0" Height="50" VerticalAlignment="Top" >Autók</Button>
+        <!--<Button Name ="JobsButton" Grid.Column="0"  Margin="20,67,20,146" Click="JobsButton_Click" >Munkák</Button>-->
 
         <ItemsControl x:Name="WorksItemsControl" Grid.Column="1" Grid.Row="0">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Label>Szia</Label>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                        <Label Content="{Binding Name}" Grid.Column="0"></Label>
+                        <Button Grid.Column="1">Szerkesztés</Button>
+                        <Button Grid.Column="2">Idő hozzárendelés</Button>
+                    </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+        <Button Grid.Row="1" x:Name="AddWork" Grid.Column="1" Margin="715,0,10,43" Height="50" VerticalAlignment="Bottom" Click="AddWork_Click" >Munka hozzáadása</Button>
     </Grid>
 </Window>

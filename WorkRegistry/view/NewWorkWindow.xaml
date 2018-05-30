@@ -1,0 +1,31 @@
+﻿<Window x:Class="WorkRegistry.view.NewWorkWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorkRegistry.view"
+        mc:Ignorable="d"
+        Title="NewWorkWindow" Height="300" Width="300">
+    <Grid>
+        <Label x:Name="label" Content="Név:" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameTB" Height="23" Margin="120,22,10,0" Text="{Binding CurrentWork.Name}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+        <Label x:Name="label1" Content="Kezdeti dátum:" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="startDP" Height="23" Margin="120,53,10,0" Text="{Binding CurrentWork.StartDate}" VerticalAlignment="Top"/>
+
+        <Label x:Name="label3" Content="Vége dátum:" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="endDP" Height="24" Margin="120,83,10,0" Text="{Binding CurrentWork.EndDate}" VerticalAlignment="Top"/>
+
+        <Label x:Name="label4" Content="Vevő: " HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="buyerTB" Height="23" Margin="120,115,10,0" Text="{Binding CurrentWork.Buyer}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+        <Label x:Name="label5" Content="Helyszín: " HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="placeTB" Height="23" Margin="120,143,10,0" Text="{Binding CurrentWork.Place}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+        <!--<Label x:Name="label2" Content="Megjegyzés:" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="commentTB" Height="66" Margin="98,116,10,0" Text="{Binding CurrentCar.Comment}" TextWrapping="Wrap" VerticalAlignment="Top"/>-->
+
+
+        <Button x:Name="saveButton" Content="Mentés" Click="saveButton_Click" Margin="0,0,10,10" HorizontalAlignment="Right" Width="110" Height="33" VerticalAlignment="Bottom"></Button>
+    </Grid>
+</Window>

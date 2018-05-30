@@ -126,6 +126,9 @@
       <DependentUpon>NewWorkerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="viewmodel\WorkersViewModel.cs" />
+    <Compile Include="view\NewWorkWindow.xaml.cs">
+      <DependentUpon>NewWorkWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\TeamsWindow.xaml.cs">
       <DependentUpon>TeamsWindow.xaml</DependentUpon>
     </Compile>
@@ -164,6 +167,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\NewWorkWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\TeamsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,7 +185,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="model\Task.cs" />
+    <Compile Include="model\Work.cs" />
     <Compile Include="model\Team.cs" />
     <Compile Include="model\Worker.cs" />
     <Compile Include="model\WorkerTeam.cs" />

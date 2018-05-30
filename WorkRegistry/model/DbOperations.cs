@@ -98,9 +98,14 @@ namespace WorkRegistry.model
             return ExcludedWorkers;
         }
 
-        public static List<Work> GetAllTasks()
+        public static List<Work> GetAllWorks()
         {
             return Db.GetAllWithChildren<Work>();
+        }
+
+        public static int AddNewWork(Work work)
+        {
+            return Db.InsertOrReplace(work);
         }
 
         public static void AddWorkItem(int taskId, WorkItem workItem)
