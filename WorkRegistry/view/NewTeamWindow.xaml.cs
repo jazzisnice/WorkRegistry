@@ -32,6 +32,7 @@ namespace WorkRegistry.view
         {
             ViewModel = newTeamViewModel;
             ViewModel.PropertyChanged += RefreshView;
+            this.DataContext = this;
             InitializeComponent();
 
             ExcludedWorkersListView.ItemsSource = newTeamViewModel.ExcludedWorkers;

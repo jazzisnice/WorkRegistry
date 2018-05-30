@@ -25,9 +25,14 @@ namespace WorkRegistry
     public partial class MainWindow : Window
     {
 
+        private WorksViewModel worksViewModel;
+
         public MainWindow()
         {
             DbOperations.InitDatabase();
+            this.worksViewModel = new WorksViewModel();
+            InitializeComponent();
+            WorksItemsControl.ItemsSource = worksViewModel.GetAllWorks();
         }
 
         private void WorkersButton_Click(object sender, RoutedEventArgs e)
@@ -46,6 +51,12 @@ namespace WorkRegistry
         {
             CarsWindow window = new CarsWindow(new CarsViewModel());
             window.Show();
+        }
+
+        private void JobsButton_Click(object sender, RoutedEventArgs e)
+        {
+//            WorksWindow worksWindow = new WorksWindow(new WorksViewModel());
+//            worksWindow.Show();
         }
     }
 }

@@ -5,12 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkRegistry"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="800" Width="1024">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -19,10 +18,17 @@
             <RowDefinition Height="3*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button Name="WorkersButton" Click="WorkersButton_Click" Grid.Column="0" Grid.Row="0"  Margin="20 20 20 20">Munkások</Button>
-        <Button Name="TeamsButton" Click="TeamsButton_Click" Grid.Column="1" Grid.Row="0" Margin="20 20 20 20">Csapatok</Button>
-        <Button Name ="CarsButton" Click="CarsButton_Click" Grid.Column="2" Grid.Row="0"  Margin="20 20 20 20" >Autók</Button>
+        <Button Name="WorkersButton" Click="WorkersButton_Click" Grid.Column="0" Grid.Row="0"  Margin="20,20,20,194">Munkások</Button>
+        <Button Name="TeamsButton" Click="TeamsButton_Click" Grid.Column="0" Margin="20,115,20,96">Csapatok</Button>
+        <Button Name ="CarsButton" Click="CarsButton_Click" Grid.Column="0"  Margin="20,165,20,49" >Autók</Button>
+        <Button Name ="JobsButton" Grid.Column="0"  Margin="20,67,20,146" Click="JobsButton_Click" >Munkák</Button>
 
-        <Button Name ="JobsButton" Grid.Column="0" Grid.Row="1"  Margin="20 20 20 20" >Munkák</Button>
+        <ItemsControl x:Name="WorksItemsControl" Grid.Column="1" Grid.Row="0">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Label>Szia</Label>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </Window>

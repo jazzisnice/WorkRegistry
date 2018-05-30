@@ -106,10 +106,13 @@
     </ApplicationDefinition>
     <Compile Include="model\Car.cs" />
     <Compile Include="model\DbOperations.cs" />
+    <Compile Include="model\WorkerWorkItem.cs" />
+    <Compile Include="model\WorkItem.cs" />
     <Compile Include="viewmodel\CarsViewModel.cs" />
     <Compile Include="viewmodel\NewCarViewModel.cs" />
     <Compile Include="viewmodel\NewTeamViewModel.cs" />
     <Compile Include="viewmodel\TeamsViewModel.cs" />
+    <Compile Include="viewmodel\WorksViewModel.cs" />
     <Compile Include="view\CarsWindow.xaml.cs">
       <DependentUpon>CarsWindow.xaml</DependentUpon>
     </Compile>
@@ -128,6 +131,9 @@
     </Compile>
     <Compile Include="view\WorkersWindow.xaml.cs">
       <DependentUpon>WorkersWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\WorksWindow.xaml.cs">
+      <DependentUpon>WorksWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -166,9 +172,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\WorksWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="model\Event.cs" />
+    <Compile Include="model\Task.cs" />
     <Compile Include="model\Team.cs" />
     <Compile Include="model\Worker.cs" />
     <Compile Include="model\WorkerTeam.cs" />

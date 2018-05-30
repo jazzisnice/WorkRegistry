@@ -23,7 +23,7 @@ namespace WorkRegistry.model
                 File.Create("C:\\Db\\workRegistryDb.sqlite");
             var Connection = new SQLiteConnection(DbPath);
             Connection.CreateTable<Worker>();
-            Connection.CreateTable<Task>();
+            Connection.CreateTable<Work>();
             Connection.CreateTable<WorkerTeam>();
             Connection.CreateTable<Team>();
             Connection.CreateTable<Car>();
@@ -96,6 +96,16 @@ namespace WorkRegistry.model
             }
 
             return ExcludedWorkers;
+        }
+
+        public static List<Work> GetAllTasks()
+        {
+            return Db.GetAllWithChildren<Work>();
+        }
+
+        public static void AddWorkItem(int taskId, WorkItem workItem)
+        {
+
         }
     }
 }

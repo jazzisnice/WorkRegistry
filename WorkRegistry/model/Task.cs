@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WorkRegistry.model
 {
-    class Task
+    public class Work
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
